@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Json and Dinamic Select</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div>
+			<label>Are you married?</label>
+			<select id="married" onclick="choicedOption(this.value)">
+				<option value="">Selecione</option>
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div id="tableDinamic"></div>
+
+	</body>
+	<script>		
+		let employees = [
+					{
+						"name"		: "Reinaldo",
+						"idade"		: "37",
+						"married"	: "Sim"
+					},
+					{
+						"name"		: "Daniel",
+						"idade"		: "29",
+						"married"	: "Não"
+					},
+					{
+						"name"		: "Telmo",
+						"idade"		: "26",
+						"married"	: "Sim"
+					},
+					{
+						"name"		: "Juan",
+						"idade"		: "28",
+						"married"	: "Sim"
+					},
+					{
+						"name"		: "Eduardo",
+						"idade"		: "31",
+						"married"	: "Não"
+					}
+				];
+
+		function choicedOption(value){
+			let result="";
+			
+			document.getElementById('tableDinamic').innerHTML="";
+			
+			for(let i=0; i<employees.length; i++){
+			
+				let selectVar = document.getElementById('married');
+
+				if(value == employees[i].married){
+
+					result = 
+							"<label>"+
+								employees[i].name+' '+
+							"</label>"+
+							"<label>"+
+								employees[i].idade+' '+
+							"</label>"+
+							"<label>"+
+								employees[i].married+' '+
+							"</label>";
+
+					document.getElementById('tableDinamic').innerHTML += result;
+
+				}
+			}
+		}
+
+
+
+	</script>
+</html>
